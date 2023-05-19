@@ -63,29 +63,31 @@ function App() {
 
   return (
     <div>
-      <h1>Your App</h1>
-      <UserForm />
-
-      <div>
-        <h1>Visitydata</h1>
-        <table>
-          <thead>
+      
+        <UserForm />
+      
+      <div className="container-fluid">
+        <br /><br /><br />
+        <h4>Visitydata</h4>
+        <table className="table table-striped" >
+          <thead >
             <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Mobile No</th>
-              <th>Actions</th>
+              <th scope="col" >Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobile No</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
             {visitydata.map(item => (
-              <tr key={item.id}>
+              <tr key={item.id}  >
                 <td>{item.name}</td>
                 <td>{item.emailaddress}</td>
                 <td>{item.mobileno}</td>
                 <td>
-                  <button onClick={() => handleDelete(item.id)}>Delete</button>
-                  <button onClick={() => setEditingId(item.id)}>Edit</button>
+                  <button onClick={() => setEditingId(item.id)} className="btn btn-warning" style={{ marginRight: '10px' }} >Edit</button>
+                  <button onClick={() => handleDelete(item.id)} className="btn btn-danger"  >Delete</button>
+                 
                 </td>
               </tr>
             ))}

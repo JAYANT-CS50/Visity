@@ -32,36 +32,38 @@ function UserForm() {
   };
 
   return (
-    <div>
-      <h1>User Data Form</h1>
+    <div className="container-fluid">
+      
       <Formik
         initialValues={{ name: '', emailaddress: '', mobileno: '' }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
         {({ handleSubmit, isSubmitting }) => (
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="name">First Name:</label>
-              <Field type="text" id="name" name="name" />
+          <form onSubmit={handleSubmit} className="row g-3" >
+
+            <div className="col-md-4" >
+              <label htmlFor="name" className="form-label" >First Name:</label>
+              <Field type="text" id="name" name="name" className="form-control" />
               <ErrorMessage name="name" component="div" />
             </div>
 
-            <div>
-              <label htmlFor="emailaddress">Email:</label>
-              <Field type="emailaddress" id="emailaddress" name="emailaddress" />
+            <div className="col-md-4" >
+              <label htmlFor="emailaddress" className="form-label" >Email:</label>
+              <Field type="emailaddress" id="emailaddress" name="emailaddress" className="form-control" />
               <ErrorMessage name="emailaddress" component="div" />
             </div>
 
-            <div>
-              <label htmlFor="mobileno">Mobile No:</label>
-              <Field type="tel" id="mobileno" name="mobileno" />
+            <div className="col-md-4" >
+              <label htmlFor="mobileno" className="form-label" >Mobile No:</label>
+              <Field type="tel" id="mobileno" name="mobileno" className="form-control" />
               <ErrorMessage name="mobileno" component="div" />
             </div>
-
-            <button type="submit" disabled={isSubmitting}>
+            <div className="col-12" >
+            <button type="submit" disabled={isSubmitting} className="btn btn-primary">
               Save
             </button>
+            </div>
           </form>
         )}
       </Formik>

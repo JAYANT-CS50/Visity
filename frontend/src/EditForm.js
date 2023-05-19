@@ -16,21 +16,32 @@ function EditForm({ visitydata, onEdit, onCancel }) {
   };
 
   return (
-    <div>
-      <h2>Edit Visitydata</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="editName">Name:</label>
-        <input type="text" id="editName" value={name} onChange={(e) => setName(e.target.value)} />
+    <div className="container-fluid" >
+      <br /><br />
+      <h4>Edit Data</h4>
+        <form onSubmit={handleSubmit} className="row g-3" >
 
-        <label htmlFor="editEmail">Email:</label>
-        <input type="email" id="editEmail" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <div className="col-md-4" >
+            <label htmlFor="editName" className="form-label" >Name:</label>
+            <input type="text" id="editName" value={name} onChange={(e) => setName(e.target.value)}  className="form-control" />
+          </div>
 
-        <label htmlFor="editMobile">Mobile No:</label>
-        <input type="tel" id="editMobile" value={mobile} onChange={(e) => setMobile(e.target.value)} pattern="[0-9]{10}" />
+          <div className="col-md-4" >
+            <label htmlFor="editEmail" className="form-label">Email:</label>
+            <input type="email" id="editEmail" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" />
+          </div>
 
-        <button type="submit">Save</button>
-        <button type="button" onClick={onCancel}>Cancel</button>
-      </form>
+          <div className="col-md-4" >
+            <label htmlFor="editMobile" className="form-label" >Mobile No:</label>
+            <input type="tel" id="editMobile" value={mobile} onChange={(e) => setMobile(e.target.value)} pattern="[0-9]{10}"  className="form-control" />
+          </div>
+
+          <div  className="col-12" >
+            <button type="submit" className="btn btn-success" style={{ marginRight: '10px' }} >Save</button>
+            <button type="button" onClick={onCancel} className="btn btn-primary" >Cancel</button>
+          </div>
+
+        </form>
     </div>
   );
 }
